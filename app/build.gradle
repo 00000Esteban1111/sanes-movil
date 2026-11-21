@@ -1,0 +1,32 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    namespace 'com.sanes.movil'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId 'com.sanes.movil'
+        minSdk 24            // Android 7.0 o superior
+        targetSdk 35
+        versionCode 1
+        versionName '0.1-prueba'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
+
+dependencies {
+    // Sirve la app desde la carpeta assets con una dirección https segura
+    implementation 'androidx.webkit:webkit:1.11.0'
+}

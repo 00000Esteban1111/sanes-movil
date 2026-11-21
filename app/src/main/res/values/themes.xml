@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="fondo">#0E2140</color>
+    <color name="barra">#0E2140</color>
+    <color name="icono_fondo">#0E2140</color>
+
+    <style name="Tema" parent="android:Theme.Material.Light.NoActionBar">
+        <item name="android:windowBackground">@color/fondo</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <!-- iconos oscuros en la barra de estado, que es blanca -->
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
+</resources>
