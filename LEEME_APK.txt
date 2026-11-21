@@ -1,0 +1,73 @@
+﻿SANES PARA ANDROID — cómo crear el APK
+=====================================
+
+Esta carpeta es un proyecto de Android Studio. Dentro va la app móvil de
+Sanes (la misma del prototipo «Sanes Móvil»), a pantalla completa.
+
+ES UNA VERSIÓN DE PRUEBA
+- Es el diseño azul marino y dorado, con PIN o patrón para entrar.
+- Los datos (sanes, personas, pagos, chat y perfil) se guardan solo en ese
+  móvil. Dos móviles no se ven entre sí.
+- La app empieza vacía: crea tu acceso con correo y contraseña.
+- «¿Olvidaste tu contraseña?» deja crear otra sin comprobar nada, así que
+  el PIN y la contraseña protegen poco. No guardes datos reales todavía.
+- Para borrarlo todo: Ajustes de Android > Aplicaciones > Sanes >
+  Almacenamiento > Borrar datos.
+Para que varios móviles compartan los mismos sanes hace falta el servidor
+en internet; el APK de esa versión se hace igual, cambiando solo la app.
+
+
+OPCIÓN 1: CREARLO EN LA NUBE CON GITHUB (sin instalar nada)
+-----------------------------------------------------------
+1. Crea una cuenta gratis en https://github.com si no tienes.
+2. Arriba a la derecha pulsa «+» > «New repository».
+   Nombre: sanes-movil. Puede ser privado. Pulsa «Create repository».
+3. En la página del repositorio vacío pulsa «uploading an existing file».
+4. Abre esta carpeta (SanesAPK) en tu PC, selecciona TODO lo que hay
+   dentro (incluida la carpeta .github) y arrástralo a la página.
+   Abajo pulsa «Commit changes».
+5. Ve a la pestaña «Actions». Verás «Crear APK» en marcha (círculo
+   amarillo). Tarda unos 5 minutos.
+   Si pide permiso para activar las Actions, pulsa el botón verde.
+6. Cuando salga el visto verde, entra en esa ejecución y, abajo, en
+   «Artifacts», descarga «Sanes-APK». Es un .zip con app-debug.apk dentro.
+
+Si sale una cruz roja, entra en la ejecución, abre el paso que falló y
+copia el texto del error para que lo revisemos.
+
+
+OPCIÓN 2: CREARLO EN TU PC CON ANDROID STUDIO
+--------------------------------------------
+1. Descarga e instala Android Studio desde
+   https://developer.android.com/studio (gratis, ocupa varios GB).
+2. Ábrelo, elige «Open» y selecciona esta carpeta (SanesAPK).
+3. Espera a que termine de preparar el proyecto (barra de abajo; la
+   primera vez descarga cosas y tarda). Si propone actualizar algo
+   («Upgrade Assistant»), puedes decir que no.
+4. Menú «Build» > «Build App Bundle(s) / APK(s)» > «Build APK(s)».
+5. Al terminar sale un aviso abajo a la derecha: pulsa «locate».
+   El archivo es app\build\outputs\apk\debug\app-debug.apk
+
+
+INSTALARLO EN EL MÓVIL
+----------------------
+1. Pasa app-debug.apk al móvil (cable USB, Google Drive, WhatsApp a ti
+   mismo, correo...).
+2. Ábrelo desde el móvil. Android pedirá permitir «instalar apps de
+   fuentes desconocidas» para esa aplicación (Archivos, Drive, Chrome...):
+   actívalo y vuelve atrás.
+3. Pulsa «Instalar». Si Play Protect avisa de que la app es desconocida,
+   elige «Instalar de todos modos»: es normal en un APK de prueba que no
+   viene de la tienda.
+Funciona en Android 7.0 o superior.
+
+Para actualizar la app más adelante, instala el APK nuevo encima: los
+datos de prueba se mantienen.
+
+
+QUÉ HAY EN EL PROYECTO
+----------------------
+- app/src/main/assets/index.html .... la app (HTML5, JavaScript y Bootstrap)
+- app/src/main/java/.../MainActivity.java ... la ventana de Android que la muestra
+- app/src/main/res/ .................. icono, nombre y colores
+- .github/workflows/crear-apk.yml ... la compilación automática en GitHub
